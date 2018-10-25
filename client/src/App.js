@@ -3,19 +3,19 @@ import Search from './components/Search';
 import './App.css';
 
 class App extends Component {
-  state = {}
+    state = {}
 
-  componentDidMount() {
+    componentDidMount() {
 
-  }
+    }
 
-  render() {
-    return (
-      <div className="container">
-        <Search />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="container">
+                <Search />
+            </div>
+        );
+    }
 }
 
 export default App;
