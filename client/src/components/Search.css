@@ -20,11 +20,16 @@
 }
 
 .Search__loader,
-.Search__noresults {
+.Search__noresults,
+.Search__error {
     width: 100%;
     background-color: #eee;
     text-align: center;
     padding: 15px;
+}
+
+.Search__error {
+    background-color: #f55;
 }
 
 @media screen and (max-width: 479px) {

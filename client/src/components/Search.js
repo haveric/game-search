@@ -15,6 +15,7 @@ class Search extends Component {
             },
             resultsLoading: false,
             hasSearched: false,
+            apiError: false,
         }
 
         this.setQuery = this.setQuery.bind(this);
@@ -28,6 +29,7 @@ class Search extends Component {
         self.setState({
             query: query,
             resultsLoading: true,
+            apiError: false,
         });
 
         // Delay querying to allow the user to type longer names and avoid needless queries
@@ -44,8 +46,12 @@ class Search extends Component {
                             queryResults: results,
                             resultsLoading: false,
                             hasSearched: true,
-                        })
+                        });
                     }
+                }).catch(function() {
+                    self.setState({
+                        apiError: true,
+                    });
                 });
         }, 250);
     }
@@ -72,17 +78,22 @@ class Search extends Component {
                     
                     <div className="clearfix">
                         {
-                            this.state.resultsLoading ?
-                                <div className="Search__loader">Searching for results...</div>
+                            this.state.apiError ?
+                                <div>
+                                    <p className="Search__error">Error searching for results. Please try again later.</p>
+                                </div>
                             :
-                            results.map(game => (
-                                <SearchResult
-                                    key={game.id}
-                                    title={game.name}
-                                    image={game.image.medium_url}
-                                    description={game.deck}
-                                />
-                            ))
+                                this.state.resultsLoading ?
+                                    <div className="Search__loader">Searching for results...</div>
+                                :
+                                results.map(game => (
+                                    <SearchResult
+                                        key={game.id}
+                                        title={game.name}
+                                        image={game.image.medium_url}
+                                        description={game.deck}
+                                    />
+                                ))
                         }
                     </div>
                     {
