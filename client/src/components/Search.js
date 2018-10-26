@@ -14,6 +14,7 @@ class Search extends Component {
                 results: []
             },
             resultsLoading: false,
+            hasSearched: false,
         }
 
         this.setQuery = this.setQuery.bind(this);
@@ -26,7 +27,7 @@ class Search extends Component {
 
         self.setState({
             query: query,
-            resultsLoading: true
+            resultsLoading: true,
         });
 
         // Delay querying to allow the user to type longer names and avoid needless queries
@@ -42,9 +43,9 @@ class Search extends Component {
                         self.setState({
                             queryResults: results,
                             resultsLoading: false,
+                            hasSearched: true,
                         })
                     }
-
                 });
         }, 250);
     }
@@ -61,24 +62,36 @@ class Search extends Component {
                 <input type="text" className="Search__input" onChange={this.setQuery} value={this.state.query} />
 
                 <div className="Search__results">
-                    <div className="clearfix">
-                        <p className="Search__results-count">Showing Results {pageResults} of {totalResults}</p>
-                    </div>
+                    {
+                        this.state.hasSearched ?
+                            <div>
+                                <p className="Search__results-count">Showing Results {pageResults} of {totalResults}</p>
+                            </div>
+                        : null
+                    }
+                    
                     <div className="clearfix">
                         {
                             this.state.resultsLoading ?
-                                <div className="Search__loader">Loading...</div>
-                                :
-                                results.map(game => (
-                                    <SearchResult
-                                        key={game.id}
-                                        title={game.name}
-                                        image={game.image.medium_url}
-                                        description={game.deck}
-                                    />
-                                ))
+                                <div className="Search__loader">Searching for results...</div>
+                            :
+                            results.map(game => (
+                                <SearchResult
+                                    key={game.id}
+                                    title={game.name}
+                                    image={game.image.medium_url}
+                                    description={game.deck}
+                                />
+                            ))
                         }
                     </div>
+                    {
+                        this.state.hasSearched && !this.state.resultsLoading && pageResults === 0 ?
+                            <div>
+                                <p className="Search__noresults">No results for <strong>{this.state.query}</strong></p>
+                            </div>
+                        : null
+                    }
                     <div className="clearfix">
                         <p className="Search__poweredby">Powered by <a href="https://www.giantbomb.com">Giantbomb</a></p>
                     </div>

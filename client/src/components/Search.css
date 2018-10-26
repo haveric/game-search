@@ -15,12 +15,16 @@
     margin: 15px 0;
 }
 
-.Search__results-count {
-    float: left;
-}
-
 .Search__poweredby {
     float: right;
+}
+
+.Search__loader,
+.Search__noresults {
+    width: 100%;
+    background-color: #eee;
+    text-align: center;
+    padding: 15px;
 }
 
 @media screen and (max-width: 479px) {
