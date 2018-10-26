@@ -1,4 +1,4 @@
-# game-search
+# Game Search
 Search for games using the GiantBomb api: https://www.giantbomb.com/api/documentation#toc-0-17
 
 # To Setup:
