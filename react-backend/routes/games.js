@@ -10,11 +10,13 @@ router.get('/', function (req, res, next) {
 });
 
 function searchGame(query, callback) {
-    const apiKey = "030c8a8e3ccd157748b38de741012d2cbd2330c4";
+    const apiKey = '030c8a8e3ccd157748b38de741012d2cbd2330c4';
+    const uniqueAgent = 'Test Game Search';
     const options = {
+        // Api provides sort, let them handle it
         url: `https://www.giantbomb.com/api/games/?api_key=${apiKey}&format=json&sort=name:asc&filter=name:${query}`,
         headers: {
-            'User-Agent': 'Test Game Search',
+            'User-Agent': uniqueAgent, // Let giantbomb know we are not a bot or automated query
         }
     }
 

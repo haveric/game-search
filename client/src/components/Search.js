@@ -13,15 +13,11 @@ class Search extends Component {
                 number_of_total_results: 0,
                 results: []
             },
-            resultsLoading: false
+            resultsLoading: false,
         }
+
         this.setQuery = this.setQuery.bind(this);
         this.queryDelay = null;
-    }
-
-
-    componentDidMount() {
-
     }
 
     setQuery(e) {
@@ -33,12 +29,15 @@ class Search extends Component {
             resultsLoading: true
         });
 
+        // Delay querying to allow the user to type longer names and avoid needless queries
         clearTimeout(self.queryDelay);
 
         self.queryDelay = setTimeout(function () {
             fetch(`/games?q=${query}`)
                 .then(res => res.json())
                 .then(results => {
+                    // Only display results if the query still matches the latest query
+                    // Prevents out of order query returns
                     if (self.state.query === query) {
                         self.setState({
                             queryResults: results,
@@ -55,6 +54,7 @@ class Search extends Component {
         const results = queryResults.results;
         const pageResults = queryResults.number_of_page_results;
         const totalResults = queryResults.number_of_total_results;
+
         return (
             <div className="Search">
                 <h1 className="Search__title">Search for a game:</h1>

@@ -3,11 +3,6 @@ import PropTypes from 'prop-types';
 import './SearchResult.css';
 
 class SearchResult extends Component {
-    state = {}
-
-    componentDidMount() {
-    }
-
     render() {
         return (
             <div className="SearchResult clearfix">

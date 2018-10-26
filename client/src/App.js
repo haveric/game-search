@@ -3,12 +3,6 @@ import Search from './components/Search';
 import './App.css';
 
 class App extends Component {
-    state = {}
-
-    componentDidMount() {
-
-    }
-
     render() {
         return (
             <div className="container">
