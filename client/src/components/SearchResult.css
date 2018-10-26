@@ -1,6 +1,6 @@
 .SearchResult {
     border: 1px solid #333;
-    height: 150px;
+    min-height: 150px;
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
@@ -26,8 +26,26 @@
 
 .SearchResult__title {
     font-size: 20px;
+    margin-top: 5px;
 }
 
 .SearchResult__description {
     font-size: 16px;
+}
+
+@media screen and (max-width: 479px) {
+    .SearchResult__image-wrap {
+        width: 100%;
+        float: none;
+    }
+
+    .SearchResult__image {
+        width: 100%;
+        max-height: none;
+    }
+
+    .SearchResult__content {
+        width: 100%;
+        float: none;
+    }
 }
