@@ -31,6 +31,7 @@
 
 .SearchResult__description {
     font-size: 16px;
+    line-height: 1.4;
 }
 
 @media screen and (max-width: 479px) {
@@ -47,5 +48,13 @@
     .SearchResult__content {
         width: 100%;
         float: none;
+    }
+
+    .SearchResult__title {
+        font-size: 18px;
+    }
+
+    .SearchResult__description {
+        font-size: 15px;
     }
 }

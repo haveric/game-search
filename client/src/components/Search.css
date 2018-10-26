@@ -27,4 +27,10 @@
     .Search__title {
         font-size: 25px;
     }
+
+    .Search__results-count,
+    .Search__poweredby {
+        float: none;
+        text-align: center;
+    }
 }

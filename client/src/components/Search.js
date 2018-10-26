@@ -63,7 +63,6 @@ class Search extends Component {
                 <div className="Search__results">
                     <div class="clearfix">
                         <p className="Search__results-count">Showing Results {pageResults} of {totalResults}</p>
-                        <p className="Search__poweredby">Powered by <a href="https://www.giantbomb.com">Giantbomb</a></p>
                     </div>
                     <div class="clearfix">
                         {
@@ -79,6 +78,9 @@ class Search extends Component {
                                     />
                                 ))
                         }
+                    </div>
+                    <div class="clearfix">
+                        <p className="Search__poweredby">Powered by <a href="https://www.giantbomb.com">Giantbomb</a></p>
                     </div>
                 </div>
             </div>
