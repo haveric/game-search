@@ -61,13 +61,13 @@ class Search extends Component {
                 <input type="text" className="Search__input" onChange={this.setQuery} value={this.state.query} />
 
                 <div className="Search__results">
-                    <div class="clearfix">
+                    <div className="clearfix">
                         <p className="Search__results-count">Showing Results {pageResults} of {totalResults}</p>
                     </div>
-                    <div class="clearfix">
+                    <div className="clearfix">
                         {
                             this.state.resultsLoading ?
-                                <div class="Search__loader">Loading...</div>
+                                <div className="Search__loader">Loading...</div>
                                 :
                                 results.map(game => (
                                     <SearchResult
@@ -79,7 +79,7 @@ class Search extends Component {
                                 ))
                         }
                     </div>
-                    <div class="clearfix">
+                    <div className="clearfix">
                         <p className="Search__poweredby">Powered by <a href="https://www.giantbomb.com">Giantbomb</a></p>
                     </div>
                 </div>
