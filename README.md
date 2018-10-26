@@ -15,6 +15,5 @@ Search for games using the GiantBomb api: https://www.giantbomb.com/api/document
 2. Open a command line within the 'client' folder
 3. Run 'npm i' from the command line to install dependencies
 4. Run 'npm start' to start the client
-5a. The client should auto open in a new browser window
-5b. If it does not auto open, navigate to 'http://localhost:3000/' in a browser
+5. The client should auto open in a new browser window. If it does not, navigate to 'http://localhost:3000/' in a browser
 6. If you have the server running, you should be able to start searching
