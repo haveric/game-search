@@ -21,7 +21,7 @@ class SearchResult extends Component {
 SearchResult.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
 }
 
 export default SearchResult;
